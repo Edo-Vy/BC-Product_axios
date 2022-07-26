@@ -179,7 +179,7 @@ function xoaProduct(idClick) {
 
 // --------------------------- GET:Tìm Kiếm  Product ------------------------------
 
-document.querySelector('#btnSearch').onclick = function () {
+document.querySelector('#btnSearch').onclick = function () { //chưa làm được
     
     let search = document.getElementById('#search_name').value;  
 
@@ -198,7 +198,6 @@ document.querySelector('#btnSearch').onclick = function () {
         })
         //Xử lý thất bại
         promise.catch(function (error) {
-    
         })
     }
 
