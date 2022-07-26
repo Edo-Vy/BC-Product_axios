@@ -1,0 +1,30 @@
+h3 {
+  height: 50px;
+  padding: 10px 20px;
+}
+
+.navbar {
+  background-color: #4a4a4a;
+}
+
+.navbar .navbar-brand {
+  color: white;
+}
+
+.collapse .navbar-nav .nav-item .nav-link:hover {
+  color: white;
+}
+
+.table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.table .title-text {
+  background-color: #4a4a4a;
+  color: #d1d105;
+}
+
+.table .title-text-name {
+  border-bottom: hidden;
+}
