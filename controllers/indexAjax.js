@@ -137,7 +137,7 @@ document.querySelector('#btnCapNhat').onclick = function () {
 
     //Gọi api 
     var promise = axios({
-        url: 'http://svcy.myclass.vn/api/Product/UpdateProduct/' + pr.name,
+        url: 'http://svcy.myclass.vn/api/Product/UpdateProduct/' + pr.id,
         method: 'PUT',
         data: pr
     });
@@ -179,34 +179,47 @@ function xoaProduct(idClick) {
 
 // --------------------------- GET:Tìm Kiếm  Product ------------------------------
 
-document.querySelector('#btnSearch').onclick = function () { //chưa làm được
-    
-    let search = document.getElementById('#search_name').value;  
+document.querySelector('#btnSearch').onclick = function () {
 
-    search.onclick = function(){
-
-        promise.then(function (result) {
-            var ttpr = result.data;
-            //Load thông sản phẩm lên giao diện
-            document.querySelector('#id').value = ttpr.id;
-            document.querySelector('#name').value = ttpr.name;
-            document.querySelector('#price').value = ttpr.price;
-            document.querySelector('#img').value = ttpr.img;
-            document.querySelector('#description').value = ttpr.description;
-            document.querySelector('#type').value = ttpr.type;
-    
+    var search = document.getElementById('search_name').value;
+    if (search) {
+        axios({
+            url: `http://svcy.myclass.vn/api/Product/SearchByName?name=${search}`,
+        }).then((result) => {
+            console.log({ result })
+        }).catch((err) => {
+            console.log({ err })
         })
-        //Xử lý thất bại
-        promise.catch(function (error) {
-        })
+    } else {
+        getProductApi();
     }
-
-    //Gọi api 
-    var promise = axios({
-        url: `http://svcy.myclass.vn/api/Product/SearchByName?name=`+ttpr.name,
-        method: 'GET',
-        data: ttpr
-    });
-
 }
+ // let search = document.getElementById('#search_name').value;  
+
+    // search.onclick = function(){
+
+    //     promise.then(function (result) {
+    //         var ttpr = result.data;
+    //         //Load thông sản phẩm lên giao diện
+    //         document.querySelector('#id').value = ttpr.id;
+    //         document.querySelector('#name').value = ttpr.name;
+    //         document.querySelector('#price').value = ttpr.price;
+    //         document.querySelector('#img').value = ttpr.img;
+    //         document.querySelector('#description').value = ttpr.description;
+    //         document.querySelector('#type').value = ttpr.type;
+
+    //     })
+    //     //Xử lý thất bại
+    //     promise.catch(function (error) {
+    //     })
+    // }
+
+    // //Gọi api
+    // var promise = axios({
+    //     url: `http://svcy.myclass.vn/api/Product/SearchByName?name=`+ttpr.name,
+    //     method: 'GET',
+    //     data: ttpr
+    // });
+
+
 
