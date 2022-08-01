@@ -186,6 +186,16 @@ document.querySelector('#btnSearch').onclick = function () {
         axios({
             url: `http://svcy.myclass.vn/api/Product/SearchByName?name=${search}`,
         }).then((result) => {
+
+            var ttpr = result.data;
+                    //Load thông sản phẩm lên giao diện
+                    document.querySelector('#id').value = ttpr.id;
+                    document.querySelector('#name').value = ttpr.name;
+                    document.querySelector('#price').value = ttpr.price;
+                    document.querySelector('#img').value = ttpr.img;
+                    document.querySelector('#description').value = ttpr.description;
+                    document.querySelector('#type').value = ttpr.type;
+                    
             console.log({ result })
         }).catch((err) => {
             console.log({ err })
